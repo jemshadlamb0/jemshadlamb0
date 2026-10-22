@@ -26,7 +26,7 @@
       <span class="brand-name">JEMSHAD<span class="brand-dot">.</span></span>
       <span class="brand-slash">/ CREATOR INDEX</span>
     </a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation"><span></span><span></span></button>
+    <div class="header-tools"><button class="icon-tool" id="search-open" type="button" aria-label="Search this portfolio" title="Search">⌕</button><button class="icon-tool theme-toggle" id="theme-toggle" type="button" aria-label="Toggle high-contrast theme" title="Toggle theme">◐</button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation"><span></span><span></span></button></div>
     <nav id="main-nav" class="nav">
       <a href="#about">About</a><a href="#numbers">Numbers</a><a href="#socials">Socials</a><a href="#content">Content</a>
       <a class="nav-cta" href="#contact"><span aria-hidden="true">⌨</span> Contact</a>
@@ -36,21 +36,26 @@
     <section class="hero section-wrap" id="home">
       <div class="hero-copy">
         <div class="eyebrow"><span class="status-dot"></span> INDEPENDENT CREATOR <span class="eyebrow-divider">/</span> KERALA, INDIA</div>
-        <p class="hero-pretitle">HELLO, INTERNET. I'M</p>
-        <h1>JEMSHAD<br><span>ABDUL SATHAR</span><i class="red-period">.</i></h1>
-        <div class="hero-role"><span class="role-bracket">[</span> AI GENERALIST <span class="role-cross">×</span> TECH CREATOR <span class="role-bracket">]</span></div>
-        <p class="hero-description">I turn complex technology into clear, useful content — from artificial intelligence and prompt engineering to hardware, automotive tech and creator workflows.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#content">Explore the work <span aria-hidden="true">↘</span></a><a class="button button-quiet" href="#socials">Find me online <span aria-hidden="true">↗</span></a></div>
-        <div class="hero-footnote"><span class="keyboard-mark" aria-hidden="true">⌨</span> BUILDING IN PUBLIC, LEARNING OUT LOUD.</div>
+        <p class="hero-pretitle">HELLO, INTERNET. <span>⌨</span></p>
+        <h1 class="hero-title">JEMSHAD<br><span class="outline-name">ABDUL</span><br><span class="red-name">SATHAR.</span></h1>
+        <p class="hero-description">I'm a <strong>content creator and AI enthusiast</strong> exploring artificial intelligence, technology, automation and the ideas shaping what comes next.</p>
+        <p class="hero-description hero-description-secondary">Making complex tech easier to understand—for curious minds, makers and Malayali audiences.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#socials">All my socials <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="#contact">Reach me out <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-footnote"><span class="keyboard-mark" aria-hidden="true">⌨</span> AI × TECH × CREATOR CULTURE</div>
       </div>
-      <div class="hero-art" aria-label="Creator identity graphic">
+      <div class="hero-art" aria-label="Abstract creator identity graphic">
         <div class="art-index mono">FIG. 01 / CREATOR SIGNAL</div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
         <div class="art-cross cross-a">+</div><div class="art-cross cross-b">+</div>
         <div class="art-center"><div class="art-key" aria-hidden="true">⌨</div><div class="art-initials">J<span>/</span>AS</div><div class="art-caption mono">SIGNAL OVER NOISE</div></div>
-        <div class="art-coordinates mono">10°59' N<br>76°07' E</div><div class="art-label mono">AI / TECH / CULTURE</div><div class="art-side-note mono">INDEPENDENT<br>BY DESIGN</div><div class="art-bottom-rule"></div>
+        <div class="art-coordinates mono">KERALA<br>INDIA / IN</div><div class="art-label mono">AI / TECH / CULTURE</div><div class="art-side-note mono">INDEPENDENT<br>BY DESIGN</div><div class="art-bottom-rule"></div>
       </div>
-      <div class="hero-index mono"><span>01</span><span>PERSONAL PORTFOLIO</span><span>SCROLL TO EXPLORE ↓</span></div>
+      <div class="hero-index mono"><span>01</span><span>PERSONAL PORTFOLIO</span><a href="#about">SCROLL TO EXPLORE ↓</a></div>
     </section>
+    <div class="search-overlay" id="search-overlay" hidden role="dialog" aria-modal="true" aria-label="Search portfolio">
+      <div class="search-panel"><div class="search-panel-head"><span class="mono">SEARCH THE PORTFOLIO</span><button id="search-close" class="search-close" type="button" aria-label="Close search">×</button></div>
+      <label class="search-label" for="portfolio-search">What are you looking for?</label><input id="portfolio-search" type="search" placeholder="Try AI, YouTube, GitHub, contact…" autocomplete="off">
+      <div class="search-results" id="search-results"><a href="#content">Content and projects ↗</a><a href="#socials">Social platforms ↗</a><a href="#contact">Contact ↗</a></div><p class="mono search-hint">ESC TO CLOSE · TYPE TO FILTER</p></div>
+    </div>
     <section class="ticker" aria-label="Creator topics"><div class="ticker-track" aria-hidden="true">
       <span>ARTIFICIAL INTELLIGENCE</span><b>⌨</b><span>PROMPT ENGINEERING</span><b>⌨</b><span>CREATOR ECONOMY</span><b>⌨</b><span>TECH EXPLAINERS</span><b>⌨</b><span>AUTOMATION</span><b>⌨</b><span>ARTIFICIAL INTELLIGENCE</span><b>⌨</b><span>PROMPT ENGINEERING</span><b>⌨</b><span>CREATOR ECONOMY</span><b>⌨</b><span>TECH EXPLAINERS</span><b>⌨</b><span>AUTOMATION</span><b>⌨</b>
     </div></section>
@@ -105,5 +110,44 @@
     <a class="brand footer-brand" href="#home"><span class="brand-key" aria-hidden="true">⌨</span><span class="brand-name">JEMSHAD<span class="brand-dot">.</span></span></a>
     <p>BUILT WITH INTENT <span>×</span> KERALA, INDIA</p><p>© <span id="current-year"></span> JEMSHAD ABDUL SATHAR</p><a class="back-top mono" href="#home">BACK TO TOP ↑</a>
   </footer>
+  <script>
+  (() => {
+    const root = document.documentElement;
+    const themeButton = document.getElementById('theme-toggle');
+    if (themeButton) themeButton.addEventListener('click', () => {
+      const enabled = root.classList.toggle('red-light-mode');
+      themeButton.setAttribute('aria-pressed', String(enabled));
+      themeButton.textContent = enabled ? '◑' : '◐';
+    });
+    const overlay = document.getElementById('search-overlay');
+    const open = document.getElementById('search-open');
+    const close = document.getElementById('search-close');
+    const input = document.getElementById('portfolio-search');
+    const results = document.getElementById('search-results');
+    const items = [
+      ['About me','about','AI, technology, creator, Kerala'],
+      ['Audience numbers','numbers','followers subscribers metrics'],
+      ['Social platforms','socials','Instagram YouTube LinkedIn Facebook X GitHub'],
+      ['Content and projects','content','AI prompts news hardware automation Malayalam'],
+      ['Toolkit','toolkit','tools models build automate'],
+      ['Contact and collaboration','contact','email work collaboration']
+    ];
+    function showSearch() { overlay.hidden = false; document.body.classList.add('search-open'); input.value=''; render(''); input.focus(); }
+    function hideSearch() { overlay.hidden = true; document.body.classList.remove('search-open'); if(open) open.focus(); }
+    function render(query) {
+      const q = query.toLowerCase().trim();
+      const matches = items.filter(x => (x.join(' ')+' '+x[0]).toLowerCase().includes(q));
+      results.innerHTML = matches.length ? matches.map(x => '<a href="#'+x[1]+'"><span>'+x[0]+'</span><b aria-hidden="true">↗</b></a>').join('') : '<p class="search-empty">No matching section. Try “AI”, “socials” or “contact”.</p>';
+      results.querySelectorAll('a').forEach(a => a.addEventListener('click', hideSearch));
+    }
+    if(open && overlay && input && results) {
+      open.addEventListener('click', showSearch);
+      close.addEventListener('click', hideSearch);
+      input.addEventListener('input', () => render(input.value));
+      overlay.addEventListener('click', e => { if(e.target === overlay) hideSearch(); });
+      document.addEventListener('keydown', e => { if(e.key === 'Escape' && !overlay.hidden) hideSearch(); });
+    }
+  })();
+  </script>
 </body>
 </html>
