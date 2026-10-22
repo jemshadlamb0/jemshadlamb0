@@ -149,5 +149,21 @@
     }
   })();
   </script>
+  <script>
+  (() => {
+    const node = document.getElementById('rotating-role');
+    if (!node || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const roles = ['content creator', 'AI enthusiast', 'prompt engineer', 'tech explainer', 'workflow builder'];
+    let index = 0;
+    window.setInterval(() => {
+      node.style.opacity = '0';
+      window.setTimeout(() => {
+        index = (index + 1) % roles.length;
+        node.textContent = roles[index];
+        node.style.opacity = '1';
+      }, 180);
+    }, 2600);
+  })();
+  </script>
 </body>
 </html>
